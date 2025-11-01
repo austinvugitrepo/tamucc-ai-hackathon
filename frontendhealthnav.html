@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>EMS Assist</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Leaflet -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+  <script
+    defer
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+
+  <link rel="stylesheet" href="healthnav.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header id="app-header" role="banner">
+    <div class="header-inner">
+      <h1 class="app-title">EMS Assist</h1>
+      <div class="header-right">
+        <div class="severity-toggle" role="group" aria-label="Patient status toggle">
+          <button id="btn-critical" class="seg active" aria-pressed="true">CRITICAL</button>
+          <button id="btn-stable" class="seg" aria-pressed="false">STABLE</button>
+        </div>
+        <div id="clock" aria-live="polite" title="Local date & time"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main layout -->
+  <main id="main" role="main">
+    <!-- Left: Chat -->
+    <aside id="left-pane" aria-label="AI chat">
+      <div class="card chat-card">
+        <h2>AI Chat</h2>
+        <div id="chat-log" class="chat-log" aria-live="polite"></div>
+
+        <form id="chat-form" class="chat-input-row" autocomplete="off">
+          <input id="chat-input" type="text" placeholder="Describe the patient (e.g., 'stroke', 'cardiac arrest')" aria-label="Message the AI" />
+          <button id="chat-send" type="submit" class="primary">Send</button>
+        </form>
+        <div id="notice" class="notice" hidden></div>
+      </div>
+
+      <div id="results" class="card">
+        <h2>Recommendation</h2>
+        <div id="results-box"></div>
+      </div>
+    </aside>
+
+    <!-- Main: Map -->
+    <section id="map-section" aria-label="Map">
+      <div id="map"></div>
+      <div id="map-hint" class="hint">
+        • Location requested on load. If blocked, click the map to set the incident point.<br/>
+        • Tap the hospital markers to view capabilities.
+      </div>
+    </section>
+  </main>
+
+  <!-- Toasts -->
+  <div id="toasts" aria-live="polite"></div>
+
+  <script defer src="script.js"></script>
+</body>
+</html>
