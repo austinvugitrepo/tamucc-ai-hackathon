@@ -12,7 +12,7 @@ DB_CONFIG = {
     "database": "Hospital"
 }
 
-# insert you know what
+
 
 # ===== CORS HELPER =====
 def add_cors(resp):
@@ -101,4 +101,4 @@ def advice():
     }))
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app.run(host="0.0.0.0", port=5050, debug=True)

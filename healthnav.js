@@ -41,7 +41,7 @@ chatForm.addEventListener("submit", async (e) => {
   chatInput.value = "";
 
   try {
-    const response = await fetch("http://192.168.0.55:5000/api/advice", {
+    const response = await fetch("http://10.14.122.205:5050/api/advice", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ symptoms: text }) // matches backend
