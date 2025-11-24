@@ -27,19 +27,38 @@ This project uses:
 - pip
 
 Instructions/Tips to get started:
----------------------------------------------------- 
+----------------------------------------------------
+run these commands:
+
+```bash 
 python3 -m venv venv
 source venv/bin/activate
+```
 to load initial dataset:
-mysql -u root -p your_database_name < dataset.sql
-CREATE USER 'webuser'@'localhost' IDENTIFIED BY 'REMOVED_PASSWORD';
-bunx serve --listen 8000
-python3 healthserver.py
 
+```bash
+mysql -u root -p your_database_name < dataset.sql
+```
+while in mysql:
+
+```sql
+CREATE USER 'webuser'@'localhost' IDENTIFIED BY 'REMOVED_PASSWORD';
+```
+finally on different shells:
+1. first shell session:
+
+```bash
+bunx serve --listen 8000
+```
+2. second shell session:
+
+```bash
+python3 healthserver.py
+```
 Docs:
 --------------------------------------------------
-https://bun.com/docs/installation
-https://mariadb.org/download/
+> **Note** https://bun.com/docs/installation
+> https://mariadb.org/download/
 ------------------------------------------------
 future plans:
 We would implement voice recognition and directions on the map 
